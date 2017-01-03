@@ -1,5 +1,6 @@
+{ users, ... }:
 {
-  users.extraUsrs.jah = {
+  users.extraUsers.jah = {
     isNormalUser = true;
     home         = "/home/jah";
     uid          = 1000;

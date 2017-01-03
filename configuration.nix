@@ -7,32 +7,15 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
+      ./devbox/kernel.nix
+      ./devbox/users.nix
+      ./devbox/x11-base.nix
+      ./devbox/display-manager.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   
-  services.xserver.videoDrivers = ["amdgpu-pro" ];
-  # boot.kernelModules = [ "amdgpu-pro" ];
-
-
-
-  # # # # # # #
-  #
-  # SYSCTL BOOT
-  #
-   boot.kernel.sysctl = {
-     "net.ipv6.conf.all.use_tempaddr" = 2; # privacy
-     "net.core.somaxconn"             = 1024;
-     "net.ipv4.ip_local_port_range"   = "1024 65535";
-     "vm.swappiness"                  = 25;
-   };
-
-   # Set time zone
-   time.timeZone = "America/Chicago";
 
 
    # Enable specific hardware
@@ -59,38 +42,6 @@
     fonts.enableDefaultFonts = true;
     fonts.fontconfig.enable  = true;
     fonts.enableFontDir      = true;
-    i18n = {
-      consoleFont = "Lat2-Terminus16";
-      consoleKeyMap = "us";
-      defaultLocale = "en_US.UTF-8";
-    };
-
-
-  # Turn on gpm, which gives you a nice mouse cursor in console
-    services.gpm.enable = true;
-
-
-
-
-  # # # # # # # # # # # # #
-  #
-  # USER CONFIGURATION
-  #
-  # # # # # # # # # # # # #
-    users.extraUsers.jah = {
-      isNormalUser = true;
-      home = "/home/jah";
-      description = "THE MAN. THE LEGEND.";
-      extraGroups = [ "networkManager" "wheel" ];
-      uid = 1000;
-    };
-
-    users.extraUsers.guest = {
-      isNormalUser = true;
-      home = "/home/guest";
-      description = "Guest Account.";
-      extraGroups = [ ];
-    };
 
 
 
@@ -168,13 +119,6 @@
 
 
 
-  # # # # # # # # # # # # # # # # # # #
-  #
-  # GRAPHICAL USER INTERFACE / X11
-  # 
-  # # # # # # # # # # # # # # # # # # #
-    services.xserver.enable = true;
-    services.xserver.layout = "us";
     services.xserver.displayManager.gdm.enable        = true;
     services.xserver.displayManager.slim.enable       = false;
     services.xserver.displayManager.lightdm.enable    = false;
