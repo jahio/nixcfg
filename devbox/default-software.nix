@@ -1,0 +1,33 @@
+{
+  environment.systemPackages = [
+   pkgs.git
+   pkgs.vim
+   pkgs.neovim
+   pkgs.tmux
+   pkgs.wget
+   pkgs.curl
+   pkgs.traceroute
+   pkgs.mtr
+   pkgs.nethog 
+   pkgs.ncdu
+   pkgs.iftop
+   pkgs.iotop
+   pkgs.dstat
+   pkgs.openssl
+   pkgs.openssh
+   pkgs.lsof
+   pkgs.htop
+   pkgs.xclip
+   pkgs.gnupg
+   pkgs.links2
+   pkgs.gptfdisk
+   pkgs.gnufdisk
+   pkgs.mosh
+   pkgs.stdenv
+   pkgs.autoconf
+   pkgs.which
+   pkgs.beep
+   pkgs.chromium
+   pkgs.firefox
+  ];
+}
