@@ -9,29 +9,12 @@
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       ./devbox/kernel.nix
+      ./devbox/hardware.nix
+      ./devbox/nixos.cfg
       ./devbox/users.nix
-      ./devbox/x11-base.nix
       ./devbox/display-manager.nix
+      ./devbox/x11-base.nix
     ];
-
-
-  
-
-
-   # Enable specific hardware
-   hardware.bluetooth.enable = true;
-   hardware.pulseaudio.enable = true;
-   hardware.pulseaudio.package = pkgs.pulseaudioFull;
-   sound.enable = true;
-   sound.enableMediaKeys = true;
-
-   # Allow "non-free" packages && use dri for 32-bit stuffs
-   nixpkgs.config.allowUnfree = true;
-   hardware.opengl.driSupport32Bit = true;
-
-
-
-
 
 
   # # # # # # # # # # # # #
