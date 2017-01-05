@@ -23,7 +23,7 @@ nixos-rebuild boot -j 6 --cores 8 --show-trace [--update] [--install-bootloader]
 + `-j 6` Up to **6** simultaneous **jobs**
 + `--cores 8` Use **8** CPU **cores**
 + `--show-trace` Show a "stack" **trace** to figure out where a bug might have come from
-+ `--upgrade`` Upgrade outdated software packages
++ `--upgrade` Upgrade outdated software packages
 + `--install-bootloader` Installs the bootloader of choice on the partition designated via `/etc/nixos/hardware-configuraion.nix`
 
 ### Switch to a different NixOS Channel:
