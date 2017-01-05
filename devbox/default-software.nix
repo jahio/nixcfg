@@ -1,3 +1,4 @@
+{ config, pkgs, ... }:
 {
   environment.systemPackages = [
    pkgs.git
@@ -8,12 +9,9 @@
    pkgs.curl
    pkgs.traceroute
    pkgs.mtr
-   pkgs.nethog 
    pkgs.ncdu
    pkgs.iftop
    pkgs.iotop
-   pkgs.dstat
-   pkgs.openssl
    pkgs.openssh
    pkgs.lsof
    pkgs.htop
@@ -26,7 +24,6 @@
    pkgs.stdenv
    pkgs.autoconf
    pkgs.which
-   pkgs.beep
    pkgs.chromium
    pkgs.firefox
   ];
