@@ -12,8 +12,10 @@
       ./devbox/hardware.nix
       ./devbox/nixos.cfg
       ./devbox/users.nix
-      ./devbox/display-manager.nix
+      ./devbox/default-software.nix
       ./devbox/x11-base.nix
+      ./devbox/display-manager.nix
+      ./devbox/desktop-environment.nix
     ];
 
 
@@ -66,32 +68,6 @@
 
 
 
-
-  # # # # # # # # # # # # # # #
-  #
-  # GLOBALLY INSTALLED SOFTWARE
-  #
-  # # # # # # # # # # # # # # #
-    environment.systemPackages = with pkgs; [
-      # Utilities
-      wget tmux git curl traceroute mtr nethogs ncdu iftop
-      iotop dstat openssl lsof htop xclip acpi pciutils file
-      gnupg links2 gptfdisk gnufdisk mosh stdenv autoconf
-      which automake glib pkgconfig beep
-      
-      # Editors, Browsers
-      vim neovim chromium firefox nano
-    ];
-
-    # Tweaks for Chromium
-    nixpkgs.config.chromium = {
-      hiDPISupport      = true;
-      enableWideVine    = true;
-      enablePepperFlash = false; # get that from branded *chrome* instead
-    };
-
-
-   
     # Shell Configuration
     programs.fish.enable           = true;
     programs.zsh.enable            = true;
@@ -102,17 +78,6 @@
 
 
 
-    services.xserver.displayManager.gdm.enable        = true;
-    services.xserver.displayManager.slim.enable       = false;
-    services.xserver.displayManager.lightdm.enable    = false;
-    services.xserver.displayManager.kdm.enable        = false;
-    services.xserver.displayManager.sddm.enable       = false;
-
-
-    services.xserver.desktopManager.gnome3.enable     = true;
-    services.xserver.desktopManager.kde5.enable       = false;
-    services.xserver.desktopManager.kde4.enable       = false;
-  
     # Shwat version of NixOS should we be on?
     system.stateVersion = "16.09";
 

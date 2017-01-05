@@ -30,4 +30,22 @@
    pkgs.chromium
    pkgs.firefox
   ];
+
+  # Special configuration for Chromium
+  nixpkgs.config.chromium = {
+
+    # Allow higher DPI support in case of 4k monitors, etc.
+    hiDPISupport = true;
+
+    # Widevine Content Decryption Module - for watching
+    # Netflix, Amazon Video, etc.
+    enableWideVine = true;
+
+    # Turn flash off for global Chromium installation;
+    # each user will have to enable it or turn it on
+    # for themselves to prevent any possible system-wide
+    # security breach through this particular vector.
+    enablePepperFlash = false;
+  };
+
 }

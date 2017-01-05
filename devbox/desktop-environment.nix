@@ -1,4 +1,4 @@
 { config, pkgs, ... }:
 {
-  services.xserver.desktopManager.gnome3 = true;
+  services.xserver.desktopManager.gnome3.enable = true;
 }
